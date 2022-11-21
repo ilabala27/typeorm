@@ -20,19 +20,19 @@
 //     return   EducationalQualification;
 // };
 
-export enum  Status {
-    MARRIED = 'married',
-    UNMARRIED ='unmarried'
-}
-export const MartialStatus = () =>{
-    return Status;
-}
+// export enum  Status {
+//     MARRIED = 'married',
+//     UNMARRIED ='unmarried'
+// }
+// export const MartialStatus = () =>{
+//     return Status;
+// }
 
-export enum mode_of_salary_credit{
-    BANKTRANSFERNEFT = 'bankTransfer/NEFT',
-    CASH = 'cash',
-    CHEQUE = 'cheque'
-}
-export const ModeOfSalary = () =>{
-    return mode_of_salary_credit;
-};
+// export enum Mode_Of_Salary_Credit{
+//     BANKTRANSFERNEFT = 'bankTransfer/NEFT',
+//     CASH = 'cash',
+//     CHEQUE = 'cheque'
+// }
+// export const ModeOfSalary = () =>{
+//     return mode_of_salary_credit;
+// };

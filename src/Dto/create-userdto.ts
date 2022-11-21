@@ -17,6 +17,16 @@ export enum EducationalQualification{
     
 
 }
+export enum  MaritalStatus {
+    MARRIED = 'married',
+    UNMARRIED ='unmarried'
+}
+
+export enum Mode_Of_Salary_Credit{
+    BANKTRANSFERNEFT = 'bankTransfer/NEFT',
+    CASH = 'cash',
+    CHEQUE = 'cheque'
+}
 
 
 export class CreateUserDto{
@@ -36,10 +46,10 @@ export class CreateUserDto{
     @ApiProperty()
     Name: String;
 
-    @IsNotEmpty()
-    @IsNumber()
-    @ApiProperty()
-    Date_of_birth: Number;
+    // @IsNotEmpty()
+    // @IsNumber()
+    // @ApiProperty()
+    // Date_of_birth: Number;
 
     @IsNotEmpty()
     @IsString()
@@ -77,19 +87,19 @@ export class CreateUserDto{
     area_pin_code: Number;
 
     @IsNotEmpty()
-    @ApiProperty()
-    @IsEnum(CurrentAddressOwnershipType)
+    @IsString()
+    @ApiProperty({enum:['owned', 'rented', 'parental owned']})
     currentAddressOwnershipType: CurrentAddressOwnershipType;
 
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @ApiProperty()
-    no_of_years_at_current_address: String;
+    no_of_years_at_current_address: Number;
 
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @ApiProperty()
-    no_of_years_at_current_city: String;
+    no_of_years_at_current_city: Number;
 
     @IsNotEmpty()
     @IsEmail()
@@ -100,9 +110,10 @@ export class CreateUserDto{
     @ApiProperty({enum: ['sslc', 'hsc', 'bachelors', 'masters', 'doctoral/phd']})
     educational_qualification: EducationalQualification;
 
+    
     @IsNotEmpty()
-    @ApiProperty()
-    marital_status: Boolean;
+    @ApiProperty({enum:['married', 'unmarried']})
+    marital_status: MaritalStatus;
 
     @IsNotEmpty()
     @IsString()
@@ -201,9 +212,9 @@ export class CreateUserDto{
     name_of_a_field: String;
 
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @ApiProperty()
-    friend_phone_number: String;
+    friend_phone_number:Number;
 
     @IsNotEmpty()
     @IsString()
@@ -216,6 +227,6 @@ export class CreateUserDto{
     CIDIL_score: String;
 
     @IsNotEmpty()
-    @ApiProperty()
-    mode_of_salary_credit: Boolean;
+   @ApiProperty({enum:[ 'bankTransfer/NEFT', 'cash', 'cheque' ]})
+    mode_of_salary_credit:Mode_Of_Salary_Credit;
 }

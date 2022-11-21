@@ -10,22 +10,22 @@ export class User{
     @Column()
     DSA_CODE: String;
 
-    @Column({unique: true})
+    @Column({unique: true, length: 10})
     Phone_number: Number;
 
     @Column()
     Name: String;
 
-    @Column()
-    Date_of_birth: Number;
+    // @Column()
+    // Date_of_birth: Number;
 
     @Column()
     Fathers_name: String;
 
-    @Column({unique: true})
+    @Column({unique: true, length:10})
     PAN_NO: String;
 
-    @Column({unique: true})
+    @Column({unique: true, length: 12})
     AADHAAR_NO: Number;
 
     @Column()
@@ -37,26 +37,26 @@ export class User{
     @Column()
     landmark: String;
 
-    @Column()
+    @Column({length: 6})
     area_pin_code: Number;
 
     @Column()
-    current_address_ownership_type: String;
+    currentAddressOwnershipType: String;
 
     @Column()
-    no_of_years_at_current_address: String;
+    no_of_years_at_current_address: Number;
 
     @Column()
-    no_of_years_at_current_city: String;
+    no_of_years_at_current_city: Number;
 
     @Column({unique: true})
     personal_email: String;
 
     @Column()
-    educational_qualification: Boolean;
+    educational_qualification: String;
 
     @Column()
-    marital_status: Boolean;
+    marital_status: String;
 
     @Column()
     name_of_spouse: String;
@@ -76,7 +76,7 @@ export class User{
     @Column()
     company_landmark: String;
 
-    @Column()
+    @Column({length:6})
     current_company_area_pincode: String;
 
     @Column()
@@ -88,7 +88,7 @@ export class User{
     @Column()
     date_of_joining_current_company: String;
 
-    @Column()
+    @Column({length:6})
     office_landline_number: Number;
 
     @Column()
@@ -109,14 +109,14 @@ export class User{
     @Column()
     name_of_a_relative: String;
 
-    @Column()
+    @Column({length: 10})
     relative_phone_number: Number;
 
     @Column()
     name_of_a_field: String;
 
-    @Column()
-    friend_phone_number: String;
+    @Column({length:10})
+    friend_phone_number: Number;
 
     @Column()
     friend_residence_address: String;
@@ -125,5 +125,5 @@ export class User{
     CIDIL_score: String;
 
     @Column()
-    mode_of_salary_credit: Boolean;
+    mode_of_salary_credit: String;
 }

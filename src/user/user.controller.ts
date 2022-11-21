@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, HttpStatus, Param, ParseIntPipe, Patch, 
 import { ApiCreatedResponse, ApiFoundResponse, ApiOkResponse } from "@nestjs/swagger";
 import { response } from "express";
 import { CreateUserDto } from "src/Dto/create-userdto";
+import { User } from "src/entity/User.Entity";
 import { UserService } from "./User.service";
 
 @Controller()
@@ -21,19 +22,21 @@ export class UserController {
         
     }
     @Post()
-    async create(@Res() response, @Body() createUserDto: CreateUserDto){
-        try {
-            const User = await this.userService.create(createUserDto);
-            return response.status(HttpStatus.CREATED).json({
-            message: 'Employee has been created successfully',
-            User,});
-        } catch (err) {
-            return response.status(HttpStatus.BAD_REQUEST).json({
-            statusCode: 400,
-            message: 'Error: User not created!',
-            error: 'Bad Request'
-         });
-        }
+    async create(@Body() createUserDto: CreateUserDto):Promise<User>{
+        const existingUser = await this.userService.create(createUserDto);
+        return existingUser;
+        // try {
+        //     const User = await this.userService.create(createUserDto);
+        //     return response.status(HttpStatus.CREATED).json({
+        //     message: 'User has been created successfully',
+        //     User,});
+        // } catch (err) {
+        //     return response.status(HttpStatus.BAD_REQUEST).json({
+        //     statusCode: 400,
+        //     message: 'Error: User not created!',
+        //     error: 'Bad Request'
+        //  });
+        // }
     }    
 
     @Patch(': id')
